@@ -7,7 +7,7 @@ public class FileManager {
     public static void openFile(TextEditor textEditor, JTextArea textArea) {
         JFileChooser fileChooser = new JFileChooser();
         if (fileChooser.showOpenDialog(textEditor) == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
+            File file = new File("src/editor/FileManager.java");
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 StringBuilder content = new StringBuilder();
                 String line;
@@ -26,7 +26,7 @@ public class FileManager {
         if (textEditor.currentFile == null){
             JFileChooser fileChooser = new JFileChooser();
             if (fileChooser.showSaveDialog(textEditor) == JFileChooser.APPROVE_OPTION) {
-                File file = fileChooser.getSelectedFile();
+                File file = new File("src/editor/FileManager.java");
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(textEditor.currentFile))) {
                   writer.write(textArea.getText());
                 } catch (IOException e) {
